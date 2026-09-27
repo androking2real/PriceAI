@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PriceAI</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#080b16;color:white}
+.app{max-width:480px;margin:auto;min-height:100vh;padding:22px 18px 90px}
+.logo{font-size:28px;font-weight:800;margin:10px 0 5px}.logo span{color:#8b5cf6}
+.tag{color:#9ca3af;margin-bottom:25px}
+.search{display:flex;background:#151a2b;border:1px solid #292f45;border-radius:16px;padding:6px}
+.search input{flex:1;background:none;border:0;outline:0;color:white;padding:13px;font-size:16px}
+.search button{border:0;border-radius:12px;background:#7c3aed;color:white;padding:0 18px;font-weight:bold}
+h2{margin-top:30px}.cats{display:flex;gap:10px;overflow:auto}.cat{background:#151a2b;padding:12px 15px;border-radius:12px;white-space:nowrap}
+.card{background:#111625;border:1px solid #242b40;border-radius:18px;padding:16px;margin-top:14px}
+.product{display:flex;gap:14px}.pic{width:80px;height:80px;border-radius:14px;background:#20273a;display:grid;place-items:center;font-size:35px}
+.name{font-weight:bold;font-size:17px}.muted{color:#9ca3af;font-size:13px;margin-top:6px}
+.price{font-size:22px;font-weight:bold;margin-top:8px}.cheap{color:#34d399;font-size:13px;margin-top:5px}
+.stores{display:flex;justify-content:space-between;border-top:1px solid #252b3d;margin-top:14px;padding-top:12px}
+.store{color:#d1d5db}.bottom{position:fixed;bottom:0;left:50%;transform:translateX(-50%);max-width:480px;width:100%;background:#101525;border-top:1px solid #242b40;display:flex;justify-content:space-around;padding:15px}
+.nav{color:#9ca3af;font-size:12px;text-align:center}.nav.active{color:#a78bfa}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="logo">Price<span>AI</span> 🤖</div>
+<div class="tag">Search once. Compare everywhere.</div>
+
+<div class="search">
+<input id="search" placeholder="Search products...">
+<button onclick="searchProduct()">Search</button>
+</div>
+
+<h2>Categories</h2>
+<div class="cats">
+<div class="cat">🎧 Audio</div><div class="cat">📱 Mobiles</div>
+<div class="cat">💻 Laptop</div><div class="cat">⌚ Watches</div>
+</div>
+
+<h2>Today's Deals</h2>
+
+<div id="results">
+<div class="card">
+<div class="product">
+<div class="pic">🎧</div>
+<div>
+<div class="name">Wireless Bluetooth Earbuds</div>
+<div class="muted">AI matched across stores</div>
+<div class="price">₹1,299</div>
+<div class="cheap">✓ Cheapest price found</div>
+</div>
+</div>
+<div class="stores">
+<div class="store">Amazon<br><b>₹1,399</b></div>
+<div class="store">Flipkart<br><b>₹1,299</b></div>
+<div class="store">Croma<br><b>₹1,499</b></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="bottom">
+<div class="nav active">⌂<br>Home</div>
+<div class="nav">🔎<br>Search</div>
+<div class="nav">♡<br>Wishlist</div>
+<div class="nav">👤<br>Profile</div>
+</div>
+
+<script>
+function searchProduct(){
+ const q=document.getElementById('search').value.trim();
+ if(!q)return;
+ document.getElementById('results').innerHTML=`
+ <div class="card">
+ <div class="product">
+ <div class="pic">🛍️</div>
+ <div>
+ <div class="name">${q}</div>
+ <div class="muted">AI product matching</div>
+ <div class="price">Comparing prices...</div>
+ <div class="cheap">✓ Checking available stores</div>
+ </div>
+ </div>
+ <div class="stores">
+ <div class="store">Amazon<br><b>Checking</b></div>
+ <div class="store">Flipkart<br><b>Checking</b></div>
+ <div class="store">Croma<br><b>Checking</b></div>
+ </div>
+ </div>`;
+}
+</script>
+</body>
+</html>
